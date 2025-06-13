@@ -37,22 +37,10 @@ const categories = [
   // ... your categories array ...
 ]
 
-const testimonials = [
-  // ... your testimonials array ...
-]
-
 export default function ModernHomePage() {
   const [searchQuery, setSearchQuery] = useState("")
   const [propertyType, setPropertyType] = useState("all")
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [users, setUsers] = useState([])
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
 
   // Fetch users from backend
   useEffect(() => {
@@ -75,57 +63,6 @@ export default function ModernHomePage() {
 
       {/* Stats Section */}
       {/* ... (your Stats Section code here) ... */}
-
-      {/* Testimonials */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Real stories from real people who found their perfect property with us
-            </p>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <Card className="border-0 shadow-2xl bg-white/80 backdrop-blur-sm">
-              <CardContent className="p-12 text-center">
-                <div className="flex justify-center mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-2xl text-gray-700 mb-8 leading-relaxed">
-                  "{testimonials[currentTestimonial]?.content}"
-                </blockquote>
-                <div className="flex items-center justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-white text-lg font-bold">
-                      {testimonials[currentTestimonial]?.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </span>
-                  </div>
-                  <div className="text-left">
-                    <div className="font-bold text-gray-900">{testimonials[currentTestimonial]?.name}</div>
-                    <div className="text-gray-600">{testimonials[currentTestimonial]?.role}</div>
-                  </div>
-                </div>
-                <div className="flex justify-center mt-8 space-x-2">
-                  {testimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentTestimonial(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === currentTestimonial ? "bg-teal-600" : "bg-gray-300"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* --- Users Section --- */}
       <section className="py-20 bg-white border-t border-gray-100">
