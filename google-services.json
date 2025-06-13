@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "904623534575",
+    "project_id": "estate-connect-ug",
+    "storage_bucket": "estate-connect-ug.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904623534575:android:5ace28fa270f2061be061a",
+        "android_client_info": {
+          "package_name": "com.realestate.planmarketplace"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkbvWLo65lABc2np_ePdUfavs69C74gVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
